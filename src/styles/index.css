@@ -46,7 +46,7 @@ ol, ul {
   display: flex;
   flex-direction: row;
   text-align: center;
-  margin: 173px 153px auto;
+ /* // margin: 23px 153px auto; */
 }
 
 .game-info {
