@@ -48,7 +48,41 @@ ol, ul {
   text-align: center;
  /* // margin: 23px 153px auto; */
 }
-
+  .del{
+      background-color: red;
+  }
+  .start{
+      margin-left: 32%;
+  }
+  .container{
+      margin-top: 23vh;
+  }
+  .containers{
+      margin: 23vh 56vh auto;
+  }
+  .card-body{
+    background-color: whitesmoke;
+  }
 .game-info {
   margin-left: 20px;
+}
+.start{
+  padding-left: 53%;
+}
+@media only screen and (max-width: 768px) {
+  .start{
+     padding-left: 0;
+  }
+  .containers{
+      margin: 23vh 2vh auto;
+  }
+  .px-2 h2{
+    font-size: 19px;
+  }
+}
+@media only screen and (max-width: 380px) {
+.square{
+  background-color: greenyellow;
+  width: 42px;
+}
 }

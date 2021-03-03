@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "react-scripts start",
-    "start": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "npm run build & serve -s ./build"
   },
   "repository": {
     "type": "git",
@@ -18,17 +19,27 @@
   "bugs": {
     "url": "https://github.com/Nkbtemmy/Tik-Tok/issues"
   },
-  "homepage":  "https://github.com/Nkbtemmy/Tik-Tok/index.js",
+  "homepage": "https://github.com/",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "bootstrap": "^4.6.0",
+    "node": "^15.10.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.5.1",
     "react-dom": "^17.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "serve": "^11.3.2",
+    "typescript": "^4.2.2",
     "web-vitals": "^0.2.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-plugin-react-html-attrs": "^3.0.5"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -26,6 +26,9 @@ export default class Game extends Component {
   constructor(props) {
       super(props);
       this.state = {
+        hell0: "hello",
+        x:  localStorage.getItem("fistPlayer"),
+        y:  localStorage.getItem("secondPlayer"),
         history: [
           {
             squares: Array(9).fill(null)
@@ -35,6 +38,8 @@ export default class Game extends Component {
         xIsNext: true
       };
     }
+    // changeColor(){}
+
 
     handleClick(i) {
       const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -43,6 +48,7 @@ export default class Game extends Component {
       if (calculateWinner(squares) || squares[i]) {
         return;
       }
+
       squares[i] = this.state.xIsNext ? "X" : "O";
       this.setState({
         history: history.concat([
@@ -66,31 +72,31 @@ export default class Game extends Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
-
+    function refreshPage() {
+    //window.location.reload();
+     window.location.replace("/");   
+     //  window.open("/");
+    }
     let status;
     if (winner) {
       if(winner === "X"){
-        status = "Winner is Nkubito ";
+        status = window.confirm(`Winner is ${this.state.x}  Do you want to start game??`);
+        if(status){
+          refreshPage();
+        }
       }
       else{
-        status = "Winner is Eric " 
+        status = window.confirm(`Winner is ${this.state.y}  Do you want to start game??`);
+        if(status){
+          refreshPage();
+        }
       }
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "Nkubito" : "Eric");
+      status = "Next player: " + (this.state.xIsNext ? `${this.state.x}` : `${this.state.y}`);
     }
 
     return (
-      <div className="game">
+      <div className="game containers">
         <div className="game-board">
           <Board
             squares={current.squares}
@@ -99,7 +105,7 @@ export default class Game extends Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
+          
         </div>
       </div>
     );
